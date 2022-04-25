@@ -68,6 +68,12 @@ namespace Graphics_OpenTK
 
         public int GetAttribLocation(string attribName) => GL.GetAttribLocation(Handle, attribName);
 
+        public void SetVector3(string name, Vector3 data)
+        {
+            GL.UseProgram(Handle);
+            GL.Uniform3(_uniformLocations[name], data);
+        }
+
 
         private void CompileAndCheckShader(int shader)
         {
