@@ -52,27 +52,31 @@ namespace Graphics_OpenTK
         }
 
 
-        // Изменение значения переменной uniform mat4 с именем name в шейдерной программе
+        // Изменение значения переменных uniform mat4
         public void SetMatrix4(string name, Matrix4 data)
         {
             GL.UseProgram(Handle);
             GL.UniformMatrix4(_uniformLocations[name], true, ref data);
         }
 
-
+        // Изменение значения переменных uniform vec3
+        public void SetVector3(string name, Vector3 data)
+        {
+            GL.UseProgram(Handle);
+            GL.Uniform3(_uniformLocations[name], data);
+        }
 
 
         public void Use() => GL.UseProgram(Handle);
         public void Deactive() => GL.UseProgram(0);
         public void Delete() => GL.DeleteProgram(Handle);
 
+
+        // Получить индекс шейдерной переменной по названию
         public int GetAttribLocation(string attribName) => GL.GetAttribLocation(Handle, attribName);
 
-        public void SetVector3(string name, Vector3 data)
-        {
-            GL.UseProgram(Handle);
-            GL.Uniform3(_uniformLocations[name], data);
-        }
+
+        
 
 
         private void CompileAndCheckShader(int shader)

@@ -40,14 +40,14 @@ namespace LearnOpenTK
              0.5f, -0.17f,  0.5f,     1.0f,  0.0f,  0.0f,    0.0f,  0.0f,  1.0f,
              0.5f,  0.17f,  0.5f,     1.0f,  0.0f,  0.0f,    0.0f,  0.0f,  1.0f,
                                     
-            -0.5f, -0.17f, -0.5f,     0.0f, -1.0f,  0.0f,    1.0f,  1.0f,  1.0f, // Bottom face
+            -0.5f, -0.17f, -0.5f,     0.0f, -1.0f,  0.0f,    1.0f,  1.0f,  1.0f, // Нижняя грань
              0.5f, -0.17f, -0.5f,     0.0f, -1.0f,  0.0f,    1.0f,  1.0f,  1.0f,
              0.5f, -0.17f,  0.5f,     0.0f, -1.0f,  0.0f,    1.0f,  1.0f,  1.0f,
              0.5f, -0.17f,  0.5f,     0.0f, -1.0f,  0.0f,    1.0f,  1.0f,  1.0f,
             -0.5f, -0.17f,  0.5f,     0.0f, -1.0f,  0.0f,    1.0f,  1.0f,  1.0f,
             -0.5f, -0.17f, -0.5f,     0.0f, -1.0f,  0.0f,    1.0f,  1.0f,  1.0f,
 
-            -0.5f,  0.17f, -0.5f,     0.0f,  1.0f,  0.0f,    1.0f,  0.0f,  0.0f, // Top face
+            -0.5f,  0.17f, -0.5f,     0.0f,  1.0f,  0.0f,    1.0f,  0.0f,  0.0f, // Верхняя грань
              0.5f,  0.17f, -0.5f,     0.0f,  1.0f,  0.0f,    1.0f,  0.0f,  0.0f,
              0.5f,  0.17f,  0.5f,     0.0f,  1.0f,  0.0f,    1.0f,  0.0f,  0.0f,
              0.5f,  0.17f,  0.5f,     0.0f,  1.0f,  0.0f,    1.0f,  0.0f,  0.0f,
@@ -55,7 +55,7 @@ namespace LearnOpenTK
             -0.5f,  0.17f, -0.5f,     0.0f,  1.0f,  0.0f,    1.0f,  0.0f,  0.0f,
         };
 
-        private Vector3 _lightPos = new Vector3(1.0f, 1.3f, 1.5f);
+        private Vector3 _lightPos = new Vector3(1.0f, 1.3f, 1.5f); // Позиция источника света и его куба
 
         private int _vertexBufferObject;
         private int _vaoBottomPart;
@@ -65,9 +65,10 @@ namespace LearnOpenTK
         private Shader _lampShader;
         private Shader _lightingShader;
 
-        private float _rotation = 0;
-        private float _topSpeed = 30f;
-        private float _bottomSpeed = 20f;
+        // Вращение
+        private float _сurrentRotation = 0;
+        private float _topSpeedRotation = 30f;
+        private float _bottomSpeedRotation = 20f;
 
 
         // Переменные, нужные для перемещения камеры
@@ -91,6 +92,7 @@ namespace LearnOpenTK
             GL.BindBuffer(BufferTarget.ArrayBuffer, _vertexBufferObject);
             GL.BufferData(BufferTarget.ArrayBuffer, _vertices.Length * sizeof(float), _vertices, BufferUsageHint.StaticDraw);
 
+            // Создание шейдерных программ
             _lightingShader = new Shader("../../../Shaders/shader.vert", "../../../Shaders/lighting.frag");
             _lampShader = new Shader("../../../Shaders/shader.vert", "../../../Shaders/shader.frag");
 
@@ -99,16 +101,17 @@ namespace LearnOpenTK
                 _vaoMiddlePart = GL.GenVertexArray();
                 GL.BindVertexArray(_vaoMiddlePart);
 
-                // Запоминание координат вершин объекта
+                // Передача шейдеру кординат вершин
                 int vertexPos = _lightingShader.GetAttribLocation("aPos");
                 GL.EnableVertexAttribArray(vertexPos);
                 GL.VertexAttribPointer(vertexPos, 3, VertexAttribPointerType.Float, false, 9 * sizeof(float), 0);
 
-                // Запоминание нормалей объекта
+                // Передача шейдеру нормалей вершин
                 int normal = _lightingShader.GetAttribLocation("aNormal");
                 GL.EnableVertexAttribArray(normal);
                 GL.VertexAttribPointer(normal, 3, VertexAttribPointerType.Float, false, 9 * sizeof(float), 3 * sizeof(float));
 
+                // Передача шейдеру цветов вершин
                 int color = _lightingShader.GetAttribLocation("aColor");
                 GL.EnableVertexAttribArray(color);
                 GL.VertexAttribPointer(color, 3, VertexAttribPointerType.Float, false, 9 * sizeof(float), 6 * sizeof(float));
@@ -119,16 +122,17 @@ namespace LearnOpenTK
                 _vaoBottomPart = GL.GenVertexArray();
                 GL.BindVertexArray(_vaoBottomPart);
 
-                // Запоминание координат вершин объекта
+                // Передача шейдеру кординат вершин
                 int vertexPos = _lightingShader.GetAttribLocation("aPos");
                 GL.EnableVertexAttribArray(vertexPos);
                 GL.VertexAttribPointer(vertexPos, 3, VertexAttribPointerType.Float, false, 9 * sizeof(float), 0);
 
-                // Запоминание нормалей объекта
+                // Передача шейдеру нормалей вершин
                 int normal = _lightingShader.GetAttribLocation("aNormal");
                 GL.EnableVertexAttribArray(normal);
                 GL.VertexAttribPointer(normal, 3, VertexAttribPointerType.Float, false, 9 * sizeof(float), 3 * sizeof(float));
 
+                // Передача шейдеру цветов вершин
                 int color = _lightingShader.GetAttribLocation("aColor");
                 GL.EnableVertexAttribArray(color);
                 GL.VertexAttribPointer(color, 3, VertexAttribPointerType.Float, false, 9 * sizeof(float), 6 * sizeof(float));
@@ -139,16 +143,17 @@ namespace LearnOpenTK
                 _vaoTopPart = GL.GenVertexArray();
                 GL.BindVertexArray(_vaoTopPart);
 
-                // Запоминание координат вершин объекта
+                // Передача шейдеру кординат вершин
                 int vertexPos = _lightingShader.GetAttribLocation("aPos");
                 GL.EnableVertexAttribArray(vertexPos);
                 GL.VertexAttribPointer(vertexPos, 3, VertexAttribPointerType.Float, false, 9 * sizeof(float), 0);
 
-                // Запоминание нормалей объекта
+                // Передача шейдеру нормалей вершин
                 int normal = _lightingShader.GetAttribLocation("aNormal");
                 GL.EnableVertexAttribArray(normal);
                 GL.VertexAttribPointer(normal, 3, VertexAttribPointerType.Float, false, 9 * sizeof(float), 3 * sizeof(float));
 
+                // Передача шейдеру цветов вершин
                 int color = _lightingShader.GetAttribLocation("aColor");
                 GL.EnableVertexAttribArray(color);
                 GL.VertexAttribPointer(color, 3, VertexAttribPointerType.Float, false, 9 * sizeof(float), 6 * sizeof(float));
@@ -164,22 +169,21 @@ namespace LearnOpenTK
                 GL.VertexAttribPointer(positionLocation, 3, VertexAttribPointerType.Float, false, 9 * sizeof(float), 0);
             }
 
+            // Создание камеры
             _camera = new Camera(Vector3.UnitZ * 3, Size.X / (float)Size.Y);
-
             CursorGrabbed = true;
         }
 
-        protected override void OnRenderFrame(FrameEventArgs e)
+        protected override void OnRenderFrame(FrameEventArgs args)
         {
-            base.OnRenderFrame(e);
-
+            base.OnRenderFrame(args);
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
 
             // Отрисовка средней части куба
             GL.BindVertexArray(_vaoMiddlePart);
             _lightingShader.Use();
 
-            _lightingShader.SetMatrix4("model", Matrix4.Identity);
+            _lightingShader.SetMatrix4("transform", Matrix4.Identity);
             _lightingShader.SetMatrix4("view", _camera.GetViewMatrix());
             _lightingShader.SetMatrix4("projection", _camera.GetProjectionMatrix());
 
@@ -195,11 +199,13 @@ namespace LearnOpenTK
             GL.BindVertexArray(_vaoTopPart);
             _lightingShader.Use();
 
+            // Перемещение объекта и постоянный поворот
             Matrix4 topTransform = Matrix4.Identity;
             topTransform *= Matrix4.CreateTranslation(0.0f, 0.34f, 0.0f);
-            _rotation += (float)e.Time;
-            topTransform *= Matrix4.CreateRotationY(MathHelper.DegreesToRadians(_rotation*_topSpeed));
-            _lightingShader.SetMatrix4("model", topTransform);
+            _сurrentRotation += (float)args.Time;
+            topTransform *= Matrix4.CreateRotationY(MathHelper.DegreesToRadians(_сurrentRotation*_topSpeedRotation));
+
+            _lightingShader.SetMatrix4("transform", topTransform);
             _lightingShader.SetMatrix4("view", _camera.GetViewMatrix());
             _lightingShader.SetMatrix4("projection", _camera.GetProjectionMatrix());
 
@@ -214,10 +220,12 @@ namespace LearnOpenTK
             GL.BindVertexArray(_vaoTopPart);
             _lightingShader.Use();
 
+            // Перемещение объекта и постоянный поворот
             Matrix4 bottomTransform = Matrix4.Identity;
-            bottomTransform *= Matrix4.CreateTranslation(0.0f, -0.33f, 0.0f);
-            bottomTransform *= Matrix4.CreateRotationY(-MathHelper.DegreesToRadians(_rotation * _bottomSpeed));
-            _lightingShader.SetMatrix4("model", bottomTransform);
+            bottomTransform *= Matrix4.CreateTranslation(0.0f, -0.34f, 0.0f);
+            bottomTransform *= Matrix4.CreateRotationY(-MathHelper.DegreesToRadians(_сurrentRotation * _bottomSpeedRotation));
+
+            _lightingShader.SetMatrix4("transform", bottomTransform);
             _lightingShader.SetMatrix4("view", _camera.GetViewMatrix());
             _lightingShader.SetMatrix4("projection", _camera.GetProjectionMatrix());
 
@@ -229,28 +237,27 @@ namespace LearnOpenTK
 
 
 
-
-
-
+            // Отрисовка источника света
             GL.BindVertexArray(_vaoMiddlePart);
-
             _lampShader.Use();
 
             Matrix4 lampMatrix = Matrix4.CreateScale(0.2f);
             lampMatrix = lampMatrix * Matrix4.CreateTranslation(_lightPos);
 
-            _lampShader.SetMatrix4("model", lampMatrix);
+            _lampShader.SetMatrix4("transform", lampMatrix);
             _lampShader.SetMatrix4("view", _camera.GetViewMatrix());
             _lampShader.SetMatrix4("projection", _camera.GetProjectionMatrix());
 
             GL.DrawArrays(PrimitiveType.Triangles, 0, 36);
 
+
+
             SwapBuffers();
         }
 
-        protected override void OnUpdateFrame(FrameEventArgs e)
+        protected override void OnUpdateFrame(FrameEventArgs args)
         {
-            base.OnUpdateFrame(e);
+            base.OnUpdateFrame(args);
 
             if (!IsFocused)
             {
@@ -269,43 +276,43 @@ namespace LearnOpenTK
 
             if (input.IsKeyDown(Keys.W))
             {
-                _camera.Position += _camera.Front * cameraSpeed * (float)e.Time; // Forward
+                _camera.Position += _camera.Front * cameraSpeed * (float)args.Time; // Forward
             }
             if (input.IsKeyDown(Keys.S))
             {
-                _camera.Position -= _camera.Front * cameraSpeed * (float)e.Time; // Backwards
+                _camera.Position -= _camera.Front * cameraSpeed * (float)args.Time; // Backwards
             }
             if (input.IsKeyDown(Keys.A))
             {
-                _camera.Position -= _camera.Right * cameraSpeed * (float)e.Time; // Left
+                _camera.Position -= _camera.Right * cameraSpeed * (float)args.Time; // Left
             }
             if (input.IsKeyDown(Keys.D))
             {
-                _camera.Position += _camera.Right * cameraSpeed * (float)e.Time; // Right
+                _camera.Position += _camera.Right * cameraSpeed * (float)args.Time; // Right
             }
             if (input.IsKeyDown(Keys.Space))
             {
-                _camera.Position += _camera.Up * cameraSpeed * (float)e.Time; // Up
+                _camera.Position += _camera.Up * cameraSpeed * (float)args.Time; // Up
             }
             if (input.IsKeyDown(Keys.LeftShift))
             {
-                _camera.Position -= _camera.Up * cameraSpeed * (float)e.Time; // Down
+                _camera.Position -= _camera.Up * cameraSpeed * (float)args.Time; // Down
             }
             if (input.IsKeyDown(Keys.Up))
             {
-                _lightPos += Vector3.UnitY * cameraSpeed * (float)e.Time; // Light Up
+                _lightPos += Vector3.UnitY * cameraSpeed * (float)args.Time; // Light Up
             }
             if (input.IsKeyDown(Keys.Down))
             {
-                _lightPos -= Vector3.UnitY * cameraSpeed * (float)e.Time; // Light Down
+                _lightPos -= Vector3.UnitY * cameraSpeed * (float)args.Time; // Light Down
             }
             if (input.IsKeyDown(Keys.Right))
             {
-                _lightPos += Vector3.UnitX * cameraSpeed * (float)e.Time; // Light Up
+                _lightPos += Vector3.UnitX * cameraSpeed * (float)args.Time; // Light Up
             }
             if (input.IsKeyDown(Keys.Left))
             {
-                _lightPos -= Vector3.UnitX * cameraSpeed * (float)e.Time; // Light Down
+                _lightPos -= Vector3.UnitX * cameraSpeed * (float)args.Time; // Light Down
             }
 
             var mouse = MouseState;
@@ -326,16 +333,16 @@ namespace LearnOpenTK
             }
         }
 
-        protected override void OnMouseWheel(MouseWheelEventArgs e)
+        protected override void OnMouseWheel(MouseWheelEventArgs args)
         {
-            base.OnMouseWheel(e);
+            base.OnMouseWheel(args);
 
-            _camera.Fov -= e.OffsetY;
+            _camera.Fov -= args.OffsetY;
         }
 
-        protected override void OnResize(ResizeEventArgs e)
+        protected override void OnResize(ResizeEventArgs args)
         {
-            base.OnResize(e);
+            base.OnResize(args);
 
             GL.Viewport(0, 0, Size.X, Size.Y);
             _camera.AspectRatio = Size.X / (float)Size.Y;

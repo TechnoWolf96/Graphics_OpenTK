@@ -10,10 +10,9 @@ namespace LearnOpenTK
         {
             var nativeWindowSettings = new NativeWindowSettings()
             {
-                Size = new Vector2i(800, 600),
-                Title = "LearnOpenTK - Colors",
-                // This is needed to run on macos
-                Flags = ContextFlags.ForwardCompatible,
+                Size = new Vector2i(1920, 1080),
+                Title = "Rubik`s Cube - maximum quality minimalism",
+                Location = new Vector2i(320, 200),
             };
 
             using (var window = new Window(GameWindowSettings.Default, nativeWindowSettings))
