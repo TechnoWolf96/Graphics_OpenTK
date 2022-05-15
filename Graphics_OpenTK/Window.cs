@@ -18,34 +18,97 @@ namespace LearnOpenTK
              0.5f,  0.17f, -0.5f,     0.0f,  0.0f, -1.0f,    0.0f,  1.0f,  0.0f,
             -0.5f,  0.17f, -0.5f,     0.0f,  0.0f, -1.0f,    0.0f,  1.0f,  0.0f,
             -0.5f, -0.17f, -0.5f,     0.0f,  0.0f, -1.0f,    0.0f,  1.0f,  0.0f,
-                                    
+            // Перекрытие
+           -0.17f, -0.17f, -0.501f,     0.0f,  0.0f, -1.0f,    0.0f,  0.8f,  0.0f,
+            0.17f, -0.17f, -0.501f,     0.0f,  0.0f, -1.0f,    0.0f,  0.8f,  0.0f,
+            0.17f,  0.17f, -0.501f,     0.0f,  0.0f, -1.0f,    0.0f,  0.8f,  0.0f,
+            0.17f,  0.17f, -0.501f,     0.0f,  0.0f, -1.0f,    0.0f,  0.8f,  0.0f,
+           -0.17f,  0.17f, -0.501f,     0.0f,  0.0f, -1.0f,    0.0f,  0.8f,  0.0f,
+           -0.17f, -0.17f, -0.501f,     0.0f,  0.0f, -1.0f,    0.0f,  0.8f,  0.0f,
+
+
+
             -0.5f, -0.17f,  0.5f,     0.0f,  0.0f,  1.0f,    1.0f,  0.4f,  0.0f, // Передняя грань
              0.5f, -0.17f,  0.5f,     0.0f,  0.0f,  1.0f,    1.0f,  0.4f,  0.0f,
              0.5f,  0.17f,  0.5f,     0.0f,  0.0f,  1.0f,    1.0f,  0.4f,  0.0f,
              0.5f,  0.17f,  0.5f,     0.0f,  0.0f,  1.0f,    1.0f,  0.4f,  0.0f,
             -0.5f,  0.17f,  0.5f,     0.0f,  0.0f,  1.0f,    1.0f,  0.4f,  0.0f,
             -0.5f, -0.17f,  0.5f,     0.0f,  0.0f,  1.0f,    1.0f,  0.4f,  0.0f,
-                                    
+            // Перекрытие
+           -0.17f, -0.17f,  0.501f,     0.0f,  0.0f,  1.0f,    0.9f,  0.35f,  0.0f, 
+            0.17f, -0.17f,  0.501f,     0.0f,  0.0f,  1.0f,    0.9f,  0.35f,  0.0f,
+            0.17f,  0.17f,  0.501f,     0.0f,  0.0f,  1.0f,    0.9f,  0.35f,  0.0f,
+            0.17f,  0.17f,  0.501f,     0.0f,  0.0f,  1.0f,    0.9f,  0.35f,  0.0f,
+           -0.17f,  0.17f,  0.501f,     0.0f,  0.0f,  1.0f,    0.9f,  0.35f,  0.0f,
+           -0.17f, -0.17f,  0.501f,     0.0f,  0.0f,  1.0f,    0.9f,  0.35f,  0.0f,
+
+
+
             -0.5f,  0.17f,  0.5f,    -1.0f,  0.0f,  0.0f,    1.0f,  0.9f,  0.1f, // Левая грань
             -0.5f,  0.17f, -0.5f,    -1.0f,  0.0f,  0.0f,    1.0f,  0.9f,  0.1f,
             -0.5f, -0.17f, -0.5f,    -1.0f,  0.0f,  0.0f,    1.0f,  0.9f,  0.1f,
             -0.5f, -0.17f, -0.5f,    -1.0f,  0.0f,  0.0f,    1.0f,  0.9f,  0.1f,
             -0.5f, -0.17f,  0.5f,    -1.0f,  0.0f,  0.0f,    1.0f,  0.9f,  0.1f,
             -0.5f,  0.17f,  0.5f,    -1.0f,  0.0f,  0.0f,    1.0f,  0.9f,  0.1f,
-                                    
+            // Перекрытие
+            -0.501f,  0.17f,  0.17f,    -1.0f,  0.0f,  0.0f,    0.8f,  0.8f,  0.07f,
+            -0.501f,  0.17f, -0.17f,    -1.0f,  0.0f,  0.0f,    0.8f,  0.8f,  0.07f,
+            -0.501f, -0.17f, -0.17f,    -1.0f,  0.0f,  0.0f,    0.8f,  0.8f,  0.07f,
+            -0.501f, -0.17f, -0.17f,    -1.0f,  0.0f,  0.0f,    0.8f,  0.8f,  0.07f,
+            -0.501f, -0.17f,  0.17f,    -1.0f,  0.0f,  0.0f,    0.8f,  0.8f,  0.07f,
+            -0.501f,  0.17f,  0.17f,    -1.0f,  0.0f,  0.0f,    0.8f,  0.8f,  0.07f,
+
+
              0.5f,  0.17f,  0.5f,     1.0f,  0.0f,  0.0f,    0.0f,  0.0f,  1.0f, // Правая грань
              0.5f,  0.17f, -0.5f,     1.0f,  0.0f,  0.0f,    0.0f,  0.0f,  1.0f,
              0.5f, -0.17f, -0.5f,     1.0f,  0.0f,  0.0f,    0.0f,  0.0f,  1.0f,
              0.5f, -0.17f, -0.5f,     1.0f,  0.0f,  0.0f,    0.0f,  0.0f,  1.0f,
              0.5f, -0.17f,  0.5f,     1.0f,  0.0f,  0.0f,    0.0f,  0.0f,  1.0f,
              0.5f,  0.17f,  0.5f,     1.0f,  0.0f,  0.0f,    0.0f,  0.0f,  1.0f,
-                                    
+             // Перекрытие
+             0.501f,  0.17f,  0.17f,     1.0f,  0.0f,  0.0f,    0.0f,  0.0f,  0.8f,
+             0.501f,  0.17f, -0.17f,     1.0f,  0.0f,  0.0f,    0.0f,  0.0f,  0.8f,
+             0.501f, -0.17f, -0.17f,     1.0f,  0.0f,  0.0f,    0.0f,  0.0f,  0.8f,
+             0.501f, -0.17f, -0.17f,     1.0f,  0.0f,  0.0f,    0.0f,  0.0f,  0.8f,
+             0.501f, -0.17f,  0.17f,     1.0f,  0.0f,  0.0f,    0.0f,  0.0f,  0.8f,
+             0.501f,  0.17f,  0.17f,     1.0f,  0.0f,  0.0f,    0.0f,  0.0f,  0.8f,
+
+
             -0.5f, -0.17f, -0.5f,     0.0f, -1.0f,  0.0f,    1.0f,  1.0f,  1.0f, // Нижняя грань
              0.5f, -0.17f, -0.5f,     0.0f, -1.0f,  0.0f,    1.0f,  1.0f,  1.0f,
              0.5f, -0.17f,  0.5f,     0.0f, -1.0f,  0.0f,    1.0f,  1.0f,  1.0f,
              0.5f, -0.17f,  0.5f,     0.0f, -1.0f,  0.0f,    1.0f,  1.0f,  1.0f,
             -0.5f, -0.17f,  0.5f,     0.0f, -1.0f,  0.0f,    1.0f,  1.0f,  1.0f,
             -0.5f, -0.17f, -0.5f,     0.0f, -1.0f,  0.0f,    1.0f,  1.0f,  1.0f,
+            // Нижнее перекрытие
+           -0.17f, -0.171f, -0.5f,     0.0f, -1.0f,  0.0f,    0.8f,  0.8f,  0.8f,
+            0.17f, -0.171f, -0.5f,     0.0f, -1.0f,  0.0f,    0.8f,  0.8f,  0.8f,
+            0.17f, -0.171f, -0.17f,    0.0f, -1.0f,  0.0f,    0.8f,  0.8f,  0.8f,
+            0.17f, -0.171f, -0.17f,    0.0f, -1.0f,  0.0f,    0.8f,  0.8f,  0.8f,
+           -0.17f, -0.171f, -0.5f,     0.0f, -1.0f,  0.0f,    0.8f,  0.8f,  0.8f,
+           -0.17f, -0.171f, -0.17f,    0.0f, -1.0f,  0.0f,    0.8f,  0.8f,  0.8f,
+           // Левое перекрытие
+           -0.5f, -0.171f, -0.17f,     0.0f, -1.0f,  0.0f,    0.8f,  0.8f,  0.8f,
+           -0.17f, -0.171f, -0.17f,     0.0f, -1.0f,  0.0f,    0.8f,  0.8f,  0.8f,
+           -0.17f, -0.171f, 0.17f,    0.0f, -1.0f,  0.0f,    0.8f,  0.8f,  0.8f,
+           -0.17f, -0.171f, 0.17f,    0.0f, -1.0f,  0.0f,    0.8f,  0.8f,  0.8f,
+           -0.5f, -0.171f, -0.17f,     0.0f, -1.0f,  0.0f,    0.8f,  0.8f,  0.8f,
+           -0.5f, -0.171f,  0.17f,    0.0f, -1.0f,  0.0f,    0.8f,  0.8f,  0.8f,
+           // Правое перекрытие
+           0.17f, -0.171f, -0.17f,     0.0f, -1.0f,  0.0f,    0.8f,  0.8f,  0.8f,
+            0.5f, -0.171f, -0.17f,     0.0f, -1.0f,  0.0f,    0.8f,  0.8f,  0.8f,
+            0.5f, -0.171f, 0.17f,    0.0f, -1.0f,  0.0f,    0.8f,  0.8f,  0.8f,
+            0.5f, -0.171f, 0.17f,    0.0f, -1.0f,  0.0f,    0.8f,  0.8f,  0.8f,
+           0.17f, -0.171f, -0.17f,     0.0f, -1.0f,  0.0f,    0.8f,  0.8f,  0.8f,
+           0.17f, -0.171f,  0.17f,    0.0f, -1.0f,  0.0f,    0.8f,  0.8f,  0.8f,
+           // Верхнее перекрытие
+           -0.17f, -0.171f,  0.17f,     0.0f, -1.0f,  0.0f,    0.8f,  0.8f,  0.8f,
+            0.17f, -0.171f,  0.17f,     0.0f, -1.0f,  0.0f,    0.8f,  0.8f,  0.8f,
+            0.17f, -0.171f,  0.5f,    0.0f, -1.0f,  0.0f,    0.8f,  0.8f,  0.8f,
+            0.17f, -0.171f,  0.5f,     0.0f, -1.0f,  0.0f,    0.8f,  0.8f,  0.8f,
+           -0.17f, -0.171f,  0.17f,     0.0f, -1.0f,  0.0f,    0.8f,  0.8f,  0.8f,
+           -0.17f, -0.171f,  0.5f,    0.0f, -1.0f,  0.0f,    0.8f,  0.8f,  0.8f,
+
 
             -0.5f,  0.17f, -0.5f,     0.0f,  1.0f,  0.0f,    1.0f,  0.0f,  0.0f, // Верхняя грань
              0.5f,  0.17f, -0.5f,     0.0f,  1.0f,  0.0f,    1.0f,  0.0f,  0.0f,
@@ -53,7 +116,37 @@ namespace LearnOpenTK
              0.5f,  0.17f,  0.5f,     0.0f,  1.0f,  0.0f,    1.0f,  0.0f,  0.0f,
             -0.5f,  0.17f,  0.5f,     0.0f,  1.0f,  0.0f,    1.0f,  0.0f,  0.0f,
             -0.5f,  0.17f, -0.5f,     0.0f,  1.0f,  0.0f,    1.0f,  0.0f,  0.0f,
+             // Нижнее перекрытие
+           -0.17f, 0.171f, -0.5f,     0.0f, 1.0f,  0.0f,    0.8f,  0.0f,  0.0f,
+            0.17f, 0.171f, -0.5f,     0.0f, 1.0f,  0.0f,    0.8f,  0.0f,  0.0f,
+            0.17f, 0.171f, -0.17f,    0.0f, 1.0f,  0.0f,    0.8f,  0.0f,  0.0f,
+            0.17f, 0.171f, -0.17f,    0.0f, 1.0f,  0.0f,    0.8f,  0.0f,  0.0f,
+           -0.17f, 0.171f, -0.5f,     0.0f, 1.0f,  0.0f,    0.8f,  0.0f,  0.0f,
+           -0.17f, 0.171f, -0.17f,    0.0f, 1.0f,  0.0f,    0.8f,  0.0f,  0.0f,
+           // Левое перекрытие
+           -0.5f, 0.171f, -0.17f,     0.0f, 1.0f,  0.0f,    0.8f, 0.0f,  0.0f,
+           -0.17f, 0.171f, -0.17f,     0.0f, 1.0f,  0.0f,   0.8f, 0.0f,  0.0f,
+           -0.17f, 0.171f, 0.17f,    0.0f, 1.0f,  0.0f,    0.8f,  0.0f,  0.0f,
+           -0.17f, 0.171f, 0.17f,    0.0f, 1.0f,  0.0f,    0.8f,  0.0f,  0.0f,
+           -0.5f, 0.171f, -0.17f,     0.0f, 1.0f,  0.0f,   0.8f,  0.0f,  0.0f,
+           -0.5f, 0.171f,  0.17f,    0.0f, 1.0f,  0.0f,    0.8f,  0.0f,  0.0f,
+           // Правое перекрытие
+           0.17f, 0.171f, -0.17f,     0.0f, 1.0f,  0.0f,    0.8f,  0.0f,  0.0f,
+            0.5f, 0.171f, -0.17f,     0.0f, 1.0f,  0.0f,    0.8f,  0.0f,  0.0f,
+            0.5f, 0.171f, 0.17f,    0.0f, 1.0f,  0.0f,    0.8f,  0.0f,  0.0f,
+            0.5f, 0.171f, 0.17f,    0.0f, 1.0f,  0.0f,    0.8f,  0.0f,  0.0f,
+           0.17f, 0.171f, -0.17f,     0.0f, 1.0f,  0.0f,    0.8f, 0.0f,  0.0f,
+           0.17f, 0.171f,  0.17f,    0.0f, 1.0f,  0.0f,    0.8f,  0.0f,  0.0f,
+           // Верхнее перекрытие
+           -0.17f, 0.171f,  0.17f,     0.0f, 1.0f,  0.0f,    0.8f,  0.0f,  0.0f,
+            0.17f, 0.171f,  0.17f,     0.0f, 1.0f,  0.0f,    0.8f, 0.0f,  0.0f,
+            0.17f, 0.171f,  0.5f,    0.0f, 1.0f,  0.0f,    0.8f,  0.0f,  0.0f,
+            0.17f, 0.171f,  0.5f,     0.0f, 1.0f,  0.0f,    0.8f,  0.0f,  0.0f,
+           -0.17f, 0.171f,  0.17f,     0.0f, 1.0f,  0.0f,    0.8f,  0.0f,  0.0f,
+           -0.17f, 0.171f,  0.5f,    0.0f, 1.0f,  0.0f,    0.8f,  0.0f,  0.0f,
         };
+        private const int triangleCount = 108;
+
 
         private Vector3 _lightPos = new Vector3(1.0f, 1.3f, 1.5f); // Позиция источника света и его куба
 
@@ -191,7 +284,7 @@ namespace LearnOpenTK
             _lightingShader.SetVector3("lightPos", _lightPos);
             _lightingShader.SetVector3("viewPos", _camera.Position);
 
-            GL.DrawArrays(PrimitiveType.Triangles, 0, 36);
+            GL.DrawArrays(PrimitiveType.Triangles, 0, triangleCount);
 
 
             
@@ -201,7 +294,7 @@ namespace LearnOpenTK
 
             // Перемещение объекта и постоянный поворот
             Matrix4 topTransform = Matrix4.Identity;
-            topTransform *= Matrix4.CreateTranslation(0.0f, 0.34f, 0.0f);
+            topTransform *= Matrix4.CreateTranslation(0.0f, 0.35f, 0.0f);
             _сurrentRotation += (float)args.Time;
             topTransform *= Matrix4.CreateRotationY(MathHelper.DegreesToRadians(_сurrentRotation*_topSpeedRotation));
 
@@ -213,7 +306,7 @@ namespace LearnOpenTK
             _lightingShader.SetVector3("lightPos", _lightPos);
             _lightingShader.SetVector3("viewPos", _camera.Position);
 
-            GL.DrawArrays(PrimitiveType.Triangles, 0, 36);
+            GL.DrawArrays(PrimitiveType.Triangles, 0, triangleCount);
 
 
             // Отрисовка нижней части куба
@@ -222,7 +315,7 @@ namespace LearnOpenTK
 
             // Перемещение объекта и постоянный поворот
             Matrix4 bottomTransform = Matrix4.Identity;
-            bottomTransform *= Matrix4.CreateTranslation(0.0f, -0.34f, 0.0f);
+            bottomTransform *= Matrix4.CreateTranslation(0.0f, -0.35f, 0.0f);
             bottomTransform *= Matrix4.CreateRotationY(-MathHelper.DegreesToRadians(_сurrentRotation * _bottomSpeedRotation));
 
             _lightingShader.SetMatrix4("transform", bottomTransform);
@@ -233,7 +326,7 @@ namespace LearnOpenTK
             _lightingShader.SetVector3("lightPos", _lightPos);
             _lightingShader.SetVector3("viewPos", _camera.Position);
 
-            GL.DrawArrays(PrimitiveType.Triangles, 0, 36);
+            GL.DrawArrays(PrimitiveType.Triangles, 0, triangleCount);
 
 
 
@@ -248,7 +341,7 @@ namespace LearnOpenTK
             _lampShader.SetMatrix4("view", _camera.GetViewMatrix());
             _lampShader.SetMatrix4("projection", _camera.GetProjectionMatrix());
 
-            GL.DrawArrays(PrimitiveType.Triangles, 0, 36);
+            GL.DrawArrays(PrimitiveType.Triangles, 0, triangleCount);
 
 
 
