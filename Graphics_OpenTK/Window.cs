@@ -155,6 +155,7 @@ namespace LearnOpenTK
         private int _vaoMiddlePart;
         private int _vaoTopPart;
         private int _vaoLamp;
+
         private Shader _lampShader;
         private Shader _lightingShader;
 

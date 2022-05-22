@@ -22,7 +22,7 @@ void main()
 
 
     //The diffuse part of the phong model.
-    float diff = max(dot(norm, lightDir), 0.0); //We make sure the value is non negative with the max function.
+    float diff = max(dot(norm, lightDir), 0.0); // Value is not negative with the max function.
     vec3 diffuse = diff * lightColor;
 
 
